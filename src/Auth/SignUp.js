@@ -71,7 +71,7 @@ const SignUp = () => {
         <h5 class="card-title">
           <img src='https://www.thesouthafrican.com/wp-content/uploads/2020/08/0b33ad49-coat-of-arms-south-africa-2.jpg' alt='img' style={{width:'100px'}}/>
         </h5>
-       <h2 class="card-subtitle mb-2 text-body-secondary">South African Municipal Service</h2>
+       <h2 class="card-subtitle mb-2 text-body-secondary" style={{fontSize:'30px'}}>South African Municipal Service</h2>
 
     <div class="card-text">
       <form  onSubmit={handleSignUp}>
