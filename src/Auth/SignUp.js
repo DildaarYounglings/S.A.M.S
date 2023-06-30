@@ -66,7 +66,7 @@ const SignUp = () => {
   return (
   <div>
     <h1>SignUp</h1>
-    <div class="card " style={{width:'20rem',backgroundColor:'white',marginLeft:'40%',height:'520px',borderRadius:'13px'}}>
+    <div class="card " style={{width:'20rem',backgroundColor:'white',marginLeft:'40%',height:'550px',borderRadius:'13px'}}>
        <div class="card-body">
         <h5 class="card-title">
           <img src='https://www.thesouthafrican.com/wp-content/uploads/2020/08/0b33ad49-coat-of-arms-south-africa-2.jpg' alt='img' style={{width:'100px'}}/>
