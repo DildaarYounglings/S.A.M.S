@@ -5,6 +5,7 @@ import SignUp from './Auth/SignUp';
 import Dashboard from './components/Dashboard';
 import { useContext } from 'react';
 import { AuthContext } from './Auth/Context/AuthContext';
+import { MapView } from './components/MapView';
 
 function App() {
   const {user} = useContext(AuthContext)
@@ -16,6 +17,8 @@ function App() {
            <Route path='/signup' element={<SignUp/>}/>
            {/* Admin-Dash */}
            <Route path='/dash' element={<Dashboard/>}/>
+           {/* Map View Page */}
+           <Route path='/areas' element={<MapView/>}/>
         </Routes>      
     </div>
   );
