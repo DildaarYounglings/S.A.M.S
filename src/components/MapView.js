@@ -1,6 +1,140 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
+import {
+  AreasBtnSVG,
+  BackBtnSVG,
+  DashboardBtnSVG,
+  ExitBtnSVG,
+  FilterBtnSVG,
+  ProgressTrackerBtnSVG,
+  SettingsBtnSVG,
+} from "./AllSvgs";
 
+export const Navigation = () => {
+  const navigationItemsArray = [
+    {
+      buttonName: " Dashboard",
+      href: "/dash",
+      spanStyle: {
+        position: "relative",
+        bottom: "10px",
+        color: "black",
+        backgroundColor: "rgba(255,255,255,0)",
+      },
+      buttonStyle: {
+        position: "relative",
+        height: "33px",
+        width: "220px",
+        borderRadius: "20px 0px 0px 20px",
+        backgroundColor: "rgba(255,255,255,0)",
+      },
+      svgImageElement: <DashboardBtnSVG />,
+    },
+    {
+      buttonName: " Areas",
+      href: "/areas",
+      spanStyle: {
+        position: "relative",
+        bottom: "10px",
+        color: "black",
+        backgroundColor: "rgba(255,255,255,0)",
+      },
+      buttonStyle: {
+        position: "relative",
+        height: "33px",
+        width: "220px",
+        backgroundColor: "rgba(255,255,255,0)",
+      },
+      svgImageElement: <AreasBtnSVG />,
+    },
+    {
+      buttonName: " Progress Tracker",
+      href: "/progressTracker",
+      spanStyle: {
+        position: "relative",
+        bottom: "10px",
+        color: "black",
+        backgroundColor: "rgba(255,255,255,0)",
+      },
+      buttonStyle: {
+        position: "relative",
+        height: "33px",
+        width: "220px",
+        backgroundColor: "rgba(255,255,255,0)",
+      },
+      svgImageElement: <ProgressTrackerBtnSVG />,
+    },
+    {
+      buttonName: " Settings",
+      href: "/settings",
+      spanStyle: {
+        position: "relative",
+        bottom: "10px",
+        color: "black",
+        backgroundColor: "rgba(255,255,255,0)",
+      },
+      buttonStyle: {
+        position: "relative",
+        height: "33px",
+        width: "220px",
+        backgroundColor: "rgba(255,255,255,0)",
+      },
+      svgImageElement: <SettingsBtnSVG />,
+    },
+    {
+      buttonName: " Exit App",
+      href: "/ExitApp",
+      spanStyle: {
+        position: "relative",
+        bottom: "10px",
+        color: "black",
+        backgroundColor: "rgba(255,255,255,0)",
+      },
+      buttonStyle: {
+        position: "relative",
+        height: "33px",
+        width: "220px",
+        borderRadius: "0px 20px 20px 0px",
+        backgroundColor: "rgba(255,255,255,0)",
+      },
+      svgImageElement: <ExitBtnSVG />,
+    },
+  ];
+
+  return (
+    <nav
+      style={{
+        marginBottom: "30px",
+        display: "flex",
+        gap: "25px",
+        marginLeft: "20%",
+        marginRight: "auto",
+      }}
+    >
+      {navigationItemsArray &&
+        navigationItemsArray.map((item, index) => (
+          <NavLink
+            key={index}
+            to={item.href}
+            style={({ isActive }) => {
+              const style = {
+                textDecoration: "none",
+                backgroundColor: `${
+                  isActive !== true ? "rgba(255,255,255,0)" : "blue"
+                }`,
+              };
+              return style;
+            }}
+          >
+            <button to={item.href} style={item.buttonStyle}>
+              {item.svgImageElement}
+              <span style={item.spanStyle}>{item.buttonName}</span>
+            </button>
+          </NavLink>
+        ))}
+    </nav>
+  );
+};
 export const Bakoven = () => {
   return (
     <React.Fragment>
@@ -26,19 +160,34 @@ export const Bakoven = () => {
       </div>
 
       <div style={{ marginBottom: "30px" }}>
-        <img src={"SAMS-MapView-Page-svgs/navigation/dashboardButton.png"} />
-        <img
-          src={"SAMS-MapView-Page-svgs/navigation/areasButtonHighLighted.png"}
-        />
-        <img
-          src={"SAMS-MapView-Page-svgs/navigation/progressTrackerButton.png"}
-        />
-        <img src={"SAMS-MapView-Page-svgs/navigation/settingsButton.png"} />
-        <img src={"SAMS-MapView-Page-svgs/navigation/exitAppButton.png"} />
+        <Navigation />
       </div>
 
-      <div style={{ marginBottom: "30px" }}>
-        <img src={"SAMS-MapView-Page-svgs/navigation/backBtn.png"} />
+      <div
+        style={{ marginBottom: "30px", marginLeft: "1%", marginRight: "auto" }}
+      >
+        <button
+          style={{
+            position: "relative",
+            width: "1191px",
+            height: "53px",
+            borderRadius: "50px 50px 50px 50px",
+            backgroundColor: "blue",
+          }}
+        >
+          <BackBtnSVG color={"white"} height={"25"} width={"25"}/>
+          <span
+            style={{
+              position: "relative",
+              bottom: "5px",
+              fontSize: "21px",
+              fontWeight: "bold",
+            }}
+          >
+            {" "}
+            back
+          </span>
+        </button>
       </div>
       <div style={{ margin: "0px auto", marginTop: "80px" }}>
         <section style={{ display: "flex", gap: "40px", translate: "35% 0px" }}>
@@ -74,7 +223,9 @@ export const MapView = () => {
     <React.Fragment>
       <Bakoven />
       <div style={{ backgroundColor: "white" }}>
-        <div style={{ display: "flex" }}>
+        <div
+          style={{ display: "flex", marginLeft: "35%", marginRight: "auto" }}
+        >
           <img
             style={{ height: "80px", width: "80px", translate: "0px 20px" }}
             src={
@@ -94,25 +245,20 @@ export const MapView = () => {
             </h3>
           </div>
         </div>
+        <Navigation />
         <div style={{ marginBottom: "30px" }}>
-          <img src={"SAMS-MapView-Page-svgs/navigation/dashboardButton.png"} />
-          <img
-            src={"SAMS-MapView-Page-svgs/navigation/areasButtonHighLighted.png"}
-          />
-          <img
-            src={"SAMS-MapView-Page-svgs/navigation/progressTrackerButton.png"}
-          />
-          <img src={"SAMS-MapView-Page-svgs/navigation/settingsButton.png"} />
-          <img src={"SAMS-MapView-Page-svgs/navigation/exitAppButton.png"} />
+          <button style={{ position: "relative", width: "fit-content" }}>
+            <BackBtnSVG />
+            <span style={{ position: "relative", bottom: "10px" }}> Back</span>
+          </button>
+          <button style={{ position: "relative", width: "fit-content" }}>
+            <FilterBtnSVG />
+            <span style={{ position: "relative", bottom: "10px" }}>
+              {" "}
+              Filter
+            </span>
+          </button>
         </div>
-        <div style={{ marginBottom: "30px" }}>
-          <img src={"SAMS-MapView-Page-svgs/navigation/backBtn.png"} />
-          <img
-            style={{ borderRadius: "0px 15px 15px 0px" }}
-            src={"SAMS-MapView-Page-svgs/navigation/filterBtn.png"}
-          />
-        </div>
-
         <table style={{ margin: "0px auto" }}>
           <thead>
             <tr style={{ backgroundColor: "blue", height: "60px" }}>
