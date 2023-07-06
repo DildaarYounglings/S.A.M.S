@@ -1,7 +1,7 @@
 import React from "react";
 import { Navigation } from "./MapView";
 import {
-    BarGraphSVG,
+  BarGraphSVG,
   FilterBtnSVG,
   SortBtnSVG,
   WorkProgressTrackerChart1,
@@ -63,16 +63,20 @@ export const WorkProgressTracker = () => {
           <WorkProgressTrackerChart4 />
         </div>
         <div className="monthlyTracker">
-          <h1 style={{marginBottom:"30px"}}>Monthly Tracker</h1>
-          <button>
-            <SortBtnSVG />
-            <a>Sort</a>
-          </button>
-          <button>
-            <FilterBtnSVG />
-            <a>Filter</a>
-          </button>
-          <div className="barGraphs" style={{marginTop:"30px"}}><BarGraphSVG/></div>
+          <h1 style={{ marginBottom: "30px" }}>Monthly Tracker</h1>
+          <div style={{margin:"0px 20%",display:"flex",gap:"20px"}}>
+            <button style={{height:"43px",width:"650px",borderRadius:"50px 0px 0px 50px"}}>
+              <SortBtnSVG />
+              <a>Sort</a>
+            </button>
+            <button style={{height:"43px",width:"650px",borderRadius:"0px 50px 50px 0px"}}>
+              <FilterBtnSVG />
+              <a>Filter</a>
+            </button>
+          </div>
+          <div className="barGraphs" style={{ marginTop: "30px" }}>
+            <BarGraphSVG />
+          </div>
         </div>
       </div>
     </React.Fragment>
