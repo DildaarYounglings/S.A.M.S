@@ -16,7 +16,7 @@ export const Navigation = () => {
   const navigationItemsArray = [
     {
       buttonName: " Dashboard",
-      href: "/dash",
+      href: "/dashboard",
       spanStyle: {
         position: "relative",
         bottom: "10px",

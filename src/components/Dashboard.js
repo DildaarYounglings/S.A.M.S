@@ -1,12 +1,12 @@
-import React, { useContext } from "react";
+import React, { useContext, useRef } from "react";
 import { auth } from "../Firebase/firebase";
 import { signOut } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Auth/Context/AuthContext";
 
 const Dashboard = () => {
   const { user } = useContext(AuthContext);
-
+  const navLinkRef = useRef();
   let navigate = useNavigate();
   // sign out function
   const signUserOut = async () => {
@@ -30,6 +30,18 @@ const Dashboard = () => {
         }}
       >
         Log Out
+      </button>
+      <button onClick={() => navigate("/dashboard")}
+        style={{
+          color: "white",
+          backgroundColor: "black",
+          width: "200px",
+          height: "50px",
+          borderRadius: "13px",
+          cursor: "pointer",
+        }}
+      >
+        Go to Dashboard
       </button>
     </div>
   );

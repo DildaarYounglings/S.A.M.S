@@ -7,6 +7,7 @@ import { useContext } from 'react';
 import { AuthContext } from './Auth/Context/AuthContext';
 import { MapView } from './components/MapView';
 import { WorkProgressTracker } from './components/WorkProgressTracker';
+import { Dash } from './components/Dash';
 
 function App() {
   const {user} = useContext(AuthContext)
@@ -18,6 +19,8 @@ function App() {
            <Route path='/signup' element={<SignUp/>}/>
            {/* Admin-Dash */}
            <Route path='/dash' element={<Dashboard/>}/>
+           {/* Dasboard Page*/}
+           <Route path='/dashboard' element={<Dash/>}/>
            {/* Map View Page */}
            <Route path='/areas' element={<MapView/>}/>
            {/*Progress Tracker page*/}
