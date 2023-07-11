@@ -13,7 +13,7 @@ export const Dash = () => {
       <style>
         {`
             .Dash{
-                background-color: white;
+              background-color: white;
             }
             .Dash header{
 
@@ -153,7 +153,7 @@ export const Dash = () => {
                 style={{
                   display: "flex",
                   flexDirection: "row",
-                  gap: "0px",
+                  gap: "500px",
                   listStyleType: "none",
                 }}
               >
@@ -186,16 +186,16 @@ export const Dash = () => {
                 </thead>
                 <tbody>
                   <tr>
-                    <th>Surburb</th>
-                    <th>Street code</th>
-                    <th>Requests Completed</th>
-                    <th>Total Requests</th>
+                    <td>Surburb</td>
+                    <td>Street code</td>
+                    <td>Requests Completed</td>
+                    <td>Total Requests</td>
                   </tr>
                   <tr>
-                    <th>Surburb</th>
-                    <th>Street code</th>
-                    <th>Requests Completed</th>
-                    <th>Total Requests</th>
+                    <td>Surburb</td>
+                    <td>Street code</td>
+                    <td>Requests Completed</td>
+                    <td>Total Requests</td>
                   </tr>
                 </tbody>
               </table>

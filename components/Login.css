@@ -1,0 +1,112 @@
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+.container0 {
+   position: relative;
+   top: 50px;
+   left: 26%;
+   width: 70%;
+   height: 650px;
+   border: solid 2px rgb(235, 233, 233);
+   border-radius: 20px;
+}
+
+.form1 {
+   position: absolute;
+   top: 50px;
+   left: 10%;
+   background-color: transparent;
+   width: 80%;
+   height: 550px;
+   border-radius: 20px;
+   border-bottom: solid 2px green;
+   border-left: solid 2px green;
+   border-right: solid 2px green;
+   border-top: solid 2px green;
+}
+
+
+h2 {
+   position: relative;
+   left: -25%;
+   top: 100px;
+   text-align: center;
+}
+
+input {
+   position: relative;
+   top: 10px;
+   height: 50px;
+   width: 40%;
+   left: 16%;
+   display: flex;
+   border-bottom: solid 1px grey;
+   border-left: solid 1px grey;
+   border-right: solid 1px grey;
+   border-top: solid 1px grey;
+}
+
+.input1 {
+   position: relative;
+   top: 150px;
+   left: 13%;
+   display: flex;
+}
+
+input::placeholder {
+   position: relative;
+   left: 4%;
+}
+
+.row1 {
+   position: relative;
+   left: 8%;
+   top: -80px;
+}
+
+p {
+   position: relative;
+   left: -33%;
+   top: 210px;
+}
+
+.p1 {
+   position: relative;
+   left: 4%;
+   top: 240px;
+}
+
+span {
+   color: black;
+   text-decoration: none;
+   font-size: 1.2rem;
+}
+
+.login {
+   position: absolute;
+   left: -15%;
+   top: 360px;
+   background-color: green;
+   border: none;
+   height: 3em;
+   width: 45%;
+   left: -4%;
+   color: white;
+   justify-content: center;
+   transition: 0.5s;
+   border-radius: 10px;
+   font-size: 1.2rem;
+   font-weight: 700;
+}
+
+button:hover {
+   transform: scale(0.95);
+}
+
+Link span{
+   position: relative;
+   top: 140px;
+}

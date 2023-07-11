@@ -1,0 +1,21 @@
+.Dildaar-CategoriesPage{
+
+    position:absolute;
+    left:50%;
+    top:13%;
+    width:100%;
+    height:fit-content;
+    translate:-50% 0%;
+    outline:1px solid black;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Adjust the number of columns as needed */
+    grid-gap: 10px; /* Adjust the gap between grid items as needed */
+  }
+  
+  .grid-item {
+    border: 1px solid #ccc; /* Optional: Add borders or customize the styles */
+    padding: 10px; /* Optional: Adjust the padding as needed */
+  }

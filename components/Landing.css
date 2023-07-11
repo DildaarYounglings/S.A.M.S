@@ -1,0 +1,44 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    width: 80%;
+    height: 100vw;
+}
+.page {
+    height: 520px;
+    position: relative;
+    width: 80%;
+    left: 22%;
+    top: 0px;
+    background-color: #36873E;
+    box-shadow: 20px 20px 30px ;
+    padding: 2rem;
+}
+.heading1 {
+position: relative;
+top: 520px;
+left: 8%;
+font-weight: 600;
+}
+.heading2{
+    position: absolute;
+    top: 120px;
+    left: 10%;
+    font-size: 2.1rem;
+    color: aliceblue;
+    margin: 1rem 0;
+    padding: 1rem;
+    text-align: left;
+}  
+
+.button2{
+    position: absolute;
+    top: 40px;
+    left: 85%;
+    height: 40px;
+    border-radius: 20px;
+    font-weight: 700;
+}

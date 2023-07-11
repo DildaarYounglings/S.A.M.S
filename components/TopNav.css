@@ -1,0 +1,136 @@
+/*begining of all css for TopNav.js component*/
+@keyframes TopNav {
+  from {
+    transform: translateX(-200%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0px);
+    opacity: 1
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.TopNav {
+  position:relative;top:0;left:0;z-index:1;
+  width: 100vw;
+  background-color: white;
+  height: 100px;
+  border-bottom: 1px solid ;
+}
+.TopNav_a {
+  height: 80px;
+  cursor: pointer;
+  position: relative;
+  left: 10%;
+  bottom: -20px;
+  margin-left: 7%;
+  font-size: 1.3rem;
+  color: black;
+  text-decoration: none;
+}
+
+.TopNav_logo {
+ position: relative;
+ left: 4%;
+ height: 40px;
+ height: 50px;
+ width: -10%;
+}
+.active {
+  height: 40px;
+  cursor: pointer;
+  position: relative;
+  bottom: -20px;
+  font-size: 1.3rem;
+  color: black;
+  border-bottom: 4px solid green;
+}
+
+.nav {
+  position: relative;
+  background-color: rgb(226, 223, 223);
+  color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 2rem;
+  padding: 0 1rem;
+}
+
+.site-title {
+  font-size: 2.3rem;
+}
+
+.nav ul {
+  position: relative;
+  left: -10%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  gap: 3rem;
+}
+
+.nav a {
+  color: inherit;
+  text-decoration: none;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: .25rem;
+}
+
+button {
+  position: relative;
+  top: 25px;
+  left: 24%;
+  width: 8%;
+  border: none;
+  border-radius: 10%;
+  height: 60px;
+  font-size: 1.7rem;
+}
+
+
+@media screen and (max-width:412px){
+  /*begining of all css for TopNav.js component*/
+  .TopNav{
+    display: flex;flex-direction: column;
+    position: sticky;top:0px;z-index:1;
+    width:100%;
+    border-bottom:solid black 1px;
+    background-color:white;
+  }
+  .TopNav_logo{
+    height:65px;width:300px;position: relative;margin-left:auto;margin-right:auto;
+  }
+  .TopNav_a{
+    position: relative;
+    bottom:-20px;
+    margin-left:2%;
+    font-size:1.1rem;
+  }
+  .search_icon{
+    position: relative;top: 30px;left: 0px;
+    background-color:white;
+    border:none;
+    margin-left:0px;
+  }
+  .logIn{
+    position: relative;bottom:-20px;
+    background-color:white;
+    border:solid black 1.5px;
+    font-size:1.09rem;
+  }
+  .logIn_a{
+    width:fit-content; height:fit-content;
+    background-color:white;
+    margin-right:2%;
+  }
+  /*end of all css for TopNav.js component*/
+}

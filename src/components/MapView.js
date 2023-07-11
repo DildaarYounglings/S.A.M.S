@@ -85,7 +85,7 @@ export const Navigation = () => {
     },
     {
       buttonName: " Exit App",
-      href: "/ExitApp",
+      href: "/",
       spanStyle: {
         position: "relative",
         bottom: "10px",

@@ -107,9 +107,9 @@ const SignUp = () => {
               />
 
               <input
-                type="text"
-                name="municipleId"
                 value={municipalId}
+                type="text"
+                name="municipalId"
                 onChange={handleChange}
                 placeholder="Municiple ID"
               />

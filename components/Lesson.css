@@ -1,0 +1,82 @@
+/*start of Lessons.js*/
+.LessonsPage {
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.LessonsRow {
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: row;
+  gap: 5vh;
+  position: relative;
+  left:10% ;
+}
+
+
+.LessonsItem {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  width: 19vw;
+  height: 29vh;
+  border-radius: 10%;
+  outline: 1px solid #8E8A8A;
+  ;
+}
+
+.LessonsItem:hover {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  width: 19vw;
+  height: 29vh;
+  border-radius: 1%;
+  cursor: pointer;
+}
+
+/*end of Lessons.js*/
+
+
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  position: relative;
+  top: 40px;
+  
+  text-align: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.responsive {
+  padding: 0 6px;
+  float: left;
+  width: 24.99999%;
+}
+
+@media only screen and (max-width: 700px) {
+  .responsive {
+    width: 49.99999%;
+    margin: 6px 0;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .responsive {
+    width: 100%;
+  }
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
