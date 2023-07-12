@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Navigation } from "./MapView";
 import { BackBtnSVG, RoadAndTransportationSVG } from "./AllSvgs";
+import * as d3 from "d3";
 
 export const Bakoven = () => {
   return (
@@ -549,6 +550,7 @@ export const Bakoven = () => {
               </div>
             </div>
           </section>
+          <D3SVG_dynamicChartTest/>
         </div>
       </div>
     </React.Fragment>
@@ -577,6 +579,76 @@ export function ViewBakovenRequestItem() {
         </header>
         <section></section>
         <footer></footer>
+      </div>
+    </React.Fragment>
+  );
+}
+export function D3SVG_dynamicChartTest() {
+  // 1] Setup Initial data and settings    -----------//
+
+  const initialData = [
+    { name: "January", value: 10 },
+    { name: "February", value: 3 },
+    { name: "March", value: 9 },
+    { name: "April", value: 7 },
+    { name: "May", value: 7 },
+    { name: "June", value: 7 },
+    { name: "July", value: 7 },
+    { name: "August", value: 7 },
+    { name: "September", value: 7 },
+    { name: "October", value: 7 },
+    { name: "November", value: 7 },
+    { name: "December", value: 7 },
+  ];
+  const width = 500;
+  const height = 150;
+  const padding = 20;
+  const maxValue = 20; // to the left is the Max data value
+
+  const [chartdata, setChartdata] = useState(initialData);
+  const svgRef = useRef();
+  // 2] Setup random data generator and SVG canvas    ----------//
+
+  const newData = function () {
+    const d = chartdata.map(function(d){d.value = Math.floor(Math.random() * (maxValue + 1));return d});
+    return d
+  };
+
+  // 3] Setup functions for Scales    --------------------------//
+  useEffect(() => {
+    //X-scales
+    const xScale = d3.scalePoint().domain(chartdata.map((d)=> d.name)).range([(0+padding),(width - padding)]);
+    console.log('start - end',xScale("January"),xScale("December"))
+    //Y-scales
+    const yScale = d3.scaleLinear().domain([0,d3.max(chartdata,function(d){return d.value})]).range([(height - padding),(0 + padding)]);
+    console.log('start - end',yScale(10),yScale(0));
+    // 4] Setup functions to draw lines    -----------------------//
+    const line = d3.line().x((d)=> xScale(d.name)).y((d)=> yScale(d.value)).curve(d3.curveMonotoneX);
+    console.log('chart draw commands', line(chartdata));
+     // 5] Draw line    -------------------------------------------//
+     d3.select(svgRef.current).select('path').attr('d',(value) => line(chartdata)).attr('fill','none').attr('stroke','blue')
+     // 6] Setup functions to draw 'X' and 'Y' Axes    ------------//
+     const xAxis = d3.axisBottom(xScale);
+     const yAxis = d3.axisLeft(yScale);
+     // 7] Draw X and Y axes   ------------------------------------//
+     d3.select('#xaxis').remove();
+     d3.select(svgRef.current).append('g').attr('transform',`translate(0,${height - padding})`).attr('id','xaxis').call(xAxis);
+     d3.select('#yaxis').remove();
+     d3.select(svgRef.current).append('g').attr('transform',`translate(${padding},0)`).attr('id','yaxis').call(yAxis);
+  },[chartdata])
+  
+  return (
+    <React.Fragment>
+      <div style={{backgroundColor:"white"}}>
+        <h1>Progress Tracker</h1>
+        <svg ref={svgRef} style={{backgroundColor:"white"}} id="chart" viewBox="0 0 500 150">
+          <path d="" fill="none" stroke="blue" strokeWidth="5" />
+        </svg>
+        <p>
+          <button type="button" onClick={() => setChartdata(newData())}>
+            click to randomize data
+          </button>
+        </p>
       </div>
     </React.Fragment>
   );
