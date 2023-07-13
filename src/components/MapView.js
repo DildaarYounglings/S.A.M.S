@@ -10,7 +10,7 @@ import {
   ProgressTrackerBtnSVG,
   SettingsBtnSVG,
 } from "./AllSvgs";
-import { Bakoven, D3SVG_dynamicChartTest } from "./Bakoven";
+import { Bakoven} from "./Bakoven";
 
 export const Navigation = () => {
   const navigationItemsArray = [
@@ -140,7 +140,6 @@ export const Navigation = () => {
 export const MapView = () => {
   return (
     <React.Fragment>
-      <D3SVG_dynamicChartTest/>
       <Bakoven/>
       <div style={{ backgroundColor: "white" }}>
         <div
