@@ -8,6 +8,7 @@ import { AuthContext } from './Auth/Context/AuthContext';
 import { MapView } from './components/MapView';
 import { WorkProgressTracker } from './components/WorkProgressTracker';
 import { Dash } from './components/Dash';
+import { BakovenRequestCardSettings } from './components/Bakoven';
 
 function App() {
   const {user} = useContext(AuthContext)
@@ -23,7 +24,9 @@ function App() {
            <Route path='/dashboard' element={<Dash/>}/>
            {/* Map View Page */}
            <Route path='/areas' element={<MapView/>}/>
-           {/*Progress Tracker page*/}
+           {/* Bakoven Request Card Settings */}
+           <Route path='/areas/bakovenRequestCardSettings' element={<BakovenRequestCardSettings/>}/>
+           {/* Progress Tracker page */}
            <Route path='/progressTracker' element={<WorkProgressTracker/>}/>
         </Routes>      
     </div>
