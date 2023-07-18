@@ -1,5 +1,4 @@
 import {Routes, Route} from 'react-router-dom'
-import './App.css';
 import Login from './Auth/Login';
 import SignUp from './Auth/SignUp';
 import Dashboard from './components/Dashboard';
@@ -8,7 +7,8 @@ import { AuthContext } from './Auth/Context/AuthContext';
 import { MapView } from './components/MapView';
 import { WorkProgressTracker } from './components/WorkProgressTracker';
 import { Dash } from './components/Dash';
-import { BakovenRequestCardSettings } from './components/Bakoven';
+import { Bakoven, BakovenRequestCardSettings } from './components/Bakoven';
+import './App.scss';
 
 function App() {
   const {user} = useContext(AuthContext)
@@ -25,9 +25,11 @@ function App() {
            {/* Map View Page */}
            <Route path='/areas' element={<MapView/>}/>
            {/* Bakoven Request Card Settings */}
-           <Route path='/areas/bakovenRequestCardSettings' element={<BakovenRequestCardSettings/>}/>
+           <Route path='/areasBakovenRequestCardSettings' element={<BakovenRequestCardSettings/>}/>
            {/* Progress Tracker page */}
            <Route path='/progressTracker' element={<WorkProgressTracker/>}/>
+           {/*Bakoven Request Page*/}
+           <Route path='/areasBakoven' element={<Bakoven/>}/>
         </Routes>      
     </div>
   );

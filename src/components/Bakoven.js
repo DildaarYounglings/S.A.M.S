@@ -1,85 +1,16 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Navigation } from "./MapView";
-import { BackBtnSVG, RoadAndTransportationSVG } from "./AllSvgs";
+import { BackBtnSVG, RoadAndTransportationSVG, UserIcon_SVG } from "./AllSvgs";
 import * as d3 from "d3";
+import { Link, useNavigate } from "react-router-dom";
 
 export const BakovenRequestCardSettings = function () {
+  const redirectTo = useNavigate();
+  const navigateBack = function(){
+    if(window.confirm("Are you sure you wish to go back with out saving your content")){redirectTo('/areasBakoven')}
+  }
   return (
     <React.Fragment>
-      <style>
-        {`
-          .BakovenRequestCardSettings{
-            
-          }
-          .BakovenRequestCardSettings header{
-            display: flex; gap: 100px;
-            flex-direction: column;
-            height: fit-content;
-            width: 100%;
-            
-          }
-          .BakovenRequestCardSettings header .header{
-            height: fit-content;
-            width: fit-content;
-            margin: 0px auto;
-            margin-top:10px;
-            display: flex; gap: 30px;
-          }
-          .BakovenRequestCardSettings header .buttonContainer{
-            width: max-content;
-            margin:0px auto;
-            margin-bottom:30px;
-          }
-          .BakovenRequestCardSettings header .buttonContainer button{
-            position: relative;
-            width: 1191px;
-            height: 53px;
-            border-radius: 50px 50px 50px 50px;
-            background-color: blue;
-          }
-          
-          .BakovenRequestCardSettings section{
-            
-          }
-          .BakovenRequestCardSettings .ApprovedRequestContainer{
-            margin: 0px 13.5%;
-            display: flex;flex-direction: row;gap: 5rem;
-            width: 420px;
-            height: 1000px;
-            overflow-y: scroll;overflow-x: hidden
-          }
-          .BakovenRequestCardSettings .ApprovedRequestItems{
-            display: flex;
-            background-color: white;
-            width: 420px;
-            height: 604px;
-            padding: 10px;
-            flex-direction:column;
-          }
-          .BakovenRequestCardSettings .ApprovedRequestItems .button{
-            translate: 7.5px -5px;
-            position: relative;
-            height: 45px;
-            width: 46px;
-          }
-          .BakovenRequestCardSettings .ApprovedRequestItems .button img{
-            position: absolute;left: 0; top: -2px;
-            width: 46px;height: 45px;
-            background-color: rgba(0, 0, 0, 0);
-          }
-
-          .BakovenRequestCardSettings .buttonContainer button span{
-            position: relative;
-            bottom: 5px;
-            font-size: 21px;
-            font-weight: bold;
-          }
-
-          .BakovenRequestCardSettings footer{
-            
-          }
-      `}
-      </style>
       <div className="BakovenRequestCardSettings">
         <header>
           <div className="header">
@@ -95,7 +26,7 @@ export const BakovenRequestCardSettings = function () {
             </p>
           </div>
           <div className="buttonContainer">
-            <button>
+            <button onClick={ () => navigateBack() }>
               <BackBtnSVG />
               <span> back</span>
             </button>
@@ -106,7 +37,7 @@ export const BakovenRequestCardSettings = function () {
             style={{
               listStyleType: "none",
               display: "flex",
-              flexDirection: "column",
+              flexDirection: "row",
             }}
           >
             <li>
@@ -202,6 +133,45 @@ export const BakovenRequestCardSettings = function () {
                         </button>
                       </div>
                     </div>
+                    <div className="ApprovedRequestItems">
+                      <div>
+                        <RoadAndTransportationSVG />
+                        <span
+                          style={{
+                            color: "blue",
+                            fontWeight: "bold",
+                            fontSize: "25px",
+                          }}
+                        >
+                          Road And Transportation
+                        </span>
+                        <p style={{ fontSize: "17px", opacity: "0.65" }}>
+                          14:20:13 Tue Jun 20 2023
+                        </p>
+                        <p style={{ fontSize: "17px" }}>
+                          Lorem, ipsum dolor sit amet consectetur adipisicing
+                          elit. Velit minima alias earum ratione voluptas a
+                          recusandae culpa, necessitatibus facere asperiores
+                          deserunt qui rem labore eligendi aliquam aut
+                          cupiditate pariatur reprehenderit.
+                        </p>
+                        <button
+                          style={{
+                            height: "46px",
+                            width: "315px",
+                            backgroundColor: "#228B22",
+                          }}
+                        >
+                          Approved
+                        </button>
+                        <button className="button">
+                          <img
+                            src="SAMS-MapView-Page-svgs/navigation/plugsBtn.svg"
+                            alt=""
+                          />
+                        </button>
+                      </div>
+                    </div>
 
                     <div className="ApprovedRequestItems">
                       <div>
@@ -242,125 +212,35 @@ export const BakovenRequestCardSettings = function () {
                         </button>
                       </div>
                     </div>
-                    
                   </li>
                 </ul>
               </div>
             </li>
           </ul>
         </section>
-        <footer></footer>
+        <footer>
+          <div className="footer">
+            <ul>
+              <li><UserIcon_SVG/></li>
+              <li><p style={{maxWidth:"fit-content",borderRight:"1px solid black",paddingRight:"10px"}}>Ja Morant</p></li>
+              <li><p>Memeber since Jun 2023</p></li>
+            </ul>
+          </div>
+        </footer>
       </div>
     </React.Fragment>
   );
 };
 export const Bakoven = () => {
+  const redirectTo = useNavigate();
+  const linkRef = useRef();
+  const navigateToSettings = function(){
+    if(window.confirm("Are you sure that you wish to edit this items settings")){
+      redirectTo('/areasBakovenRequestCardSettings');
+    }
+  }
   return (
     <React.Fragment>
-      <style>
-        {`
-              .Bakoven {
-                position:relative;
-                background-color: white;
-              }
-              .Bakoven .header {
-                display: flex;
-                margin: 0px 40%;
-              }
-              .Bakoven .header img{
-                height:80px; width:80px;
-                translate:0px 20px
-              }
-              .Bakoven .header div{
-                display:flex;
-                flex-direction:column;
-                margin-left:30px;
-              }
-              .Bakoven .header div h1{
-                text-align: left;
-              }
-              .Bakoven .header div h3{
-                translate: 0px -30px;
-                color: blue;
-              }
-              .Bakoven .NavigationContainer{
-                margin-bottom:30px
-              }
-              .Bakoven .buttonContainer{
-                margin-bottom:30px;
-                margin-left:1vw;
-                margin-right:auto;
-              }
-              .Bakoven .buttonContainer button{
-                position: relative;
-                width: 1191px;
-                height: 53px;
-                border-radius: 50px 50px 50px 50px;
-                background-color: blue;
-              }
-              .Bakoven .buttonContainer button span{
-                position: relative;
-                bottom: 5px;
-                font-size: 21px;
-                font-weight: bold;
-              }
-              .Bakoven .body{
-                display: flex; flex-direction: column;
-              }
-              .Bakoven .body section{
-                display: flex;
-                gap: 40px;
-                translate: 35% 0px;
-              }
-              .Bakoven .body section .span1{
-                padding-left: 10px;
-              }
-              .Bakoven .body section .span2{
-                border-left: 1px solid black;
-                padding-left: 40px;
-              }
-              .Bakoven .body section .span3{
-                border-left: 1px solid black;
-                padding-left: 40px;
-              }
-              .Bakoven .body section .span4{
-                border-left: 1px solid black;
-                padding-left: 30px;
-              }
-              .Bakoven .body .section2{
-                display:flex;
-                flex-direction:column;
-                translate: 0px 0px;
-                margin: 80px 0px;
-              }
-              .Bakoven .ApprovedRequestContainer{
-                margin: 0px 13.5%;
-                display: flex;flex-direction: row;gap: 5rem;
-                width: 1475px;
-                height: 654px;
-                overflow-x: scroll;overflow-y: hidden
-              }
-              .Bakoven .ApprovedRequestItems{
-                display: flex;
-                background-color: white;
-                width: 420px;
-                height: 604px;
-                padding: 10px;
-                flex-direction:column;
-              }
-              .Bakoven .ApprovedRequestItems .button{
-                translate: 7.5px -5px;
-                position: relative;
-                height: 45px;
-                width: 46px;
-              }
-              .Bakoven .ApprovedRequestItems .button img{
-                position: absolute;left: 0; top: -2px;
-                width: 46px;height: 45px;
-                background-color: rgba(0, 0, 0, 0);
-              }
-          `}
-      </style>
       <div className="Bakoven">
         <div className="header">
           <img
@@ -378,13 +258,13 @@ export const Bakoven = () => {
         </div>
 
         <div className="buttonContainer">
-          <button>
+          <button onClick={() => linkRef.current.click()}>
             <BackBtnSVG />
-            <span> back</span>
+            <span style={{minHeight:'fit-content',minWidth:'fit-content'}}><Link style={{all:'unset'}} ref={linkRef} to={'/areas'}>back</Link></span>
           </button>
         </div>
         <div className="body">
-          <section>
+          <section className="section1">
             <span className="span1">
               4 <p>Request</p>
             </span>
@@ -412,19 +292,14 @@ export const Bakoven = () => {
               <div className="ApprovedRequestItems">
                 <div>
                   <RoadAndTransportationSVG />
-                  <span
-                    style={{
-                      color: "blue",
-                      fontWeight: "bold",
-                      fontSize: "25px",
-                    }}
+                  <span className="ApprovedRequestItems_span"
                   >
                     Road And Transportation
                   </span>
-                  <p style={{ fontSize: "17px", opacity: "0.65" }}>
+                  <p className='pTagWithDate'>
                     14:20:13 Tue Jun 20 2023
                   </p>
-                  <p style={{ fontSize: "17px" }}>
+                  <p className='pTagWithDetails'>
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                     Velit minima alias earum ratione voluptas a recusandae
                     culpa, necessitatibus facere asperiores deserunt qui rem
@@ -440,7 +315,7 @@ export const Bakoven = () => {
                   >
                     Approved
                   </button>
-                  <button className="button">
+                  <button className="button" onClick={ () => navigateToSettings() }>
                     <img
                       src="SAMS-MapView-Page-svgs/navigation/plugsBtn.svg"
                       alt=""
@@ -448,22 +323,18 @@ export const Bakoven = () => {
                   </button>
                 </div>
               </div>
+
               <div className="ApprovedRequestItems">
                 <div>
                   <RoadAndTransportationSVG />
-                  <span
-                    style={{
-                      color: "blue",
-                      fontWeight: "bold",
-                      fontSize: "25px",
-                    }}
+                  <span className="ApprovedRequestItems_span"
                   >
                     Road And Transportation
                   </span>
-                  <p style={{ fontSize: "17px", opacity: "0.65" }}>
+                  <p className='pTagWithDate'>
                     14:20:13 Tue Jun 20 2023
                   </p>
-                  <p style={{ fontSize: "17px" }}>
+                  <p className='pTagWithDetails'>
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                     Velit minima alias earum ratione voluptas a recusandae
                     culpa, necessitatibus facere asperiores deserunt qui rem
@@ -479,7 +350,7 @@ export const Bakoven = () => {
                   >
                     Approved
                   </button>
-                  <button className="button">
+                  <button className="button" onClick={ () => navigateToSettings() }>
                     <img
                       src="SAMS-MapView-Page-svgs/navigation/plugsBtn.svg"
                       alt=""
@@ -487,22 +358,18 @@ export const Bakoven = () => {
                   </button>
                 </div>
               </div>
+
               <div className="ApprovedRequestItems">
                 <div>
                   <RoadAndTransportationSVG />
-                  <span
-                    style={{
-                      color: "blue",
-                      fontWeight: "bold",
-                      fontSize: "25px",
-                    }}
+                  <span className="ApprovedRequestItems_span"
                   >
                     Road And Transportation
                   </span>
-                  <p style={{ fontSize: "17px", opacity: "0.65" }}>
+                  <p className='pTagWithDate'>
                     14:20:13 Tue Jun 20 2023
                   </p>
-                  <p style={{ fontSize: "17px" }}>
+                  <p className='pTagWithDetails'>
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                     Velit minima alias earum ratione voluptas a recusandae
                     culpa, necessitatibus facere asperiores deserunt qui rem
@@ -518,7 +385,7 @@ export const Bakoven = () => {
                   >
                     Approved
                   </button>
-                  <button className="button">
+                  <button className="button" onClick={ () => navigateToSettings() }>
                     <img
                       src="SAMS-MapView-Page-svgs/navigation/plugsBtn.svg"
                       alt=""
@@ -526,22 +393,18 @@ export const Bakoven = () => {
                   </button>
                 </div>
               </div>
+
               <div className="ApprovedRequestItems">
                 <div>
                   <RoadAndTransportationSVG />
-                  <span
-                    style={{
-                      color: "blue",
-                      fontWeight: "bold",
-                      fontSize: "25px",
-                    }}
+                  <span className="ApprovedRequestItems_span"
                   >
                     Road And Transportation
                   </span>
-                  <p style={{ fontSize: "17px", opacity: "0.65" }}>
+                  <p className='pTagWithDate'>
                     14:20:13 Tue Jun 20 2023
                   </p>
-                  <p style={{ fontSize: "17px" }}>
+                  <p className='pTagWithDetails'>
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                     Velit minima alias earum ratione voluptas a recusandae
                     culpa, necessitatibus facere asperiores deserunt qui rem
@@ -557,7 +420,7 @@ export const Bakoven = () => {
                   >
                     Approved
                   </button>
-                  <button className="button">
+                  <button className="button" onClick={ () => navigateToSettings() }>
                     <img
                       src="SAMS-MapView-Page-svgs/navigation/plugsBtn.svg"
                       alt=""
@@ -565,22 +428,18 @@ export const Bakoven = () => {
                   </button>
                 </div>
               </div>
+
               <div className="ApprovedRequestItems">
                 <div>
                   <RoadAndTransportationSVG />
-                  <span
-                    style={{
-                      color: "blue",
-                      fontWeight: "bold",
-                      fontSize: "25px",
-                    }}
+                  <span className="ApprovedRequestItems_span"
                   >
                     Road And Transportation
                   </span>
-                  <p style={{ fontSize: "17px", opacity: "0.65" }}>
+                  <p className='pTagWithDate'>
                     14:20:13 Tue Jun 20 2023
                   </p>
-                  <p style={{ fontSize: "17px" }}>
+                  <p className='pTagWithDetails'>
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                     Velit minima alias earum ratione voluptas a recusandae
                     culpa, necessitatibus facere asperiores deserunt qui rem
@@ -596,202 +455,7 @@ export const Bakoven = () => {
                   >
                     Approved
                   </button>
-                  <button className="button">
-                    <img
-                      src="SAMS-MapView-Page-svgs/navigation/plugsBtn.svg"
-                      alt=""
-                    />
-                  </button>
-                </div>
-              </div>
-              <div className="ApprovedRequestItems">
-                <div>
-                  <RoadAndTransportationSVG />
-                  <span
-                    style={{
-                      color: "blue",
-                      fontWeight: "bold",
-                      fontSize: "25px",
-                    }}
-                  >
-                    Road And Transportation
-                  </span>
-                  <p style={{ fontSize: "17px", opacity: "0.65" }}>
-                    14:20:13 Tue Jun 20 2023
-                  </p>
-                  <p style={{ fontSize: "17px" }}>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                    Velit minima alias earum ratione voluptas a recusandae
-                    culpa, necessitatibus facere asperiores deserunt qui rem
-                    labore eligendi aliquam aut cupiditate pariatur
-                    reprehenderit.
-                  </p>
-                  <button
-                    style={{
-                      height: "46px",
-                      width: "315px",
-                      backgroundColor: "#228B22",
-                    }}
-                  >
-                    Approved
-                  </button>
-                  <button className="button">
-                    <img
-                      src="SAMS-MapView-Page-svgs/navigation/plugsBtn.svg"
-                      alt=""
-                    />
-                  </button>
-                </div>
-              </div>
-              <div className="ApprovedRequestItems">
-                <div>
-                  <RoadAndTransportationSVG />
-                  <span
-                    style={{
-                      color: "blue",
-                      fontWeight: "bold",
-                      fontSize: "25px",
-                    }}
-                  >
-                    Road And Transportation
-                  </span>
-                  <p style={{ fontSize: "17px", opacity: "0.65" }}>
-                    14:20:13 Tue Jun 20 2023
-                  </p>
-                  <p style={{ fontSize: "17px" }}>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                    Velit minima alias earum ratione voluptas a recusandae
-                    culpa, necessitatibus facere asperiores deserunt qui rem
-                    labore eligendi aliquam aut cupiditate pariatur
-                    reprehenderit.
-                  </p>
-                  <button
-                    style={{
-                      height: "46px",
-                      width: "315px",
-                      backgroundColor: "#228B22",
-                    }}
-                  >
-                    Approved
-                  </button>
-                  <button className="button">
-                    <img
-                      src="SAMS-MapView-Page-svgs/navigation/plugsBtn.svg"
-                      alt=""
-                    />
-                  </button>
-                </div>
-              </div>
-              <div className="ApprovedRequestItems">
-                <div>
-                  <RoadAndTransportationSVG />
-                  <span
-                    style={{
-                      color: "blue",
-                      fontWeight: "bold",
-                      fontSize: "25px",
-                    }}
-                  >
-                    Road And Transportation
-                  </span>
-                  <p style={{ fontSize: "17px", opacity: "0.65" }}>
-                    14:20:13 Tue Jun 20 2023
-                  </p>
-                  <p style={{ fontSize: "17px" }}>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                    Velit minima alias earum ratione voluptas a recusandae
-                    culpa, necessitatibus facere asperiores deserunt qui rem
-                    labore eligendi aliquam aut cupiditate pariatur
-                    reprehenderit.
-                  </p>
-                  <button
-                    style={{
-                      height: "46px",
-                      width: "315px",
-                      backgroundColor: "#228B22",
-                    }}
-                  >
-                    Approved
-                  </button>
-                  <button className="button">
-                    <img
-                      src="SAMS-MapView-Page-svgs/navigation/plugsBtn.svg"
-                      alt=""
-                    />
-                  </button>
-                </div>
-              </div>
-              <div className="ApprovedRequestItems">
-                <div>
-                  <RoadAndTransportationSVG />
-                  <span
-                    style={{
-                      color: "blue",
-                      fontWeight: "bold",
-                      fontSize: "25px",
-                    }}
-                  >
-                    Road And Transportation
-                  </span>
-                  <p style={{ fontSize: "17px", opacity: "0.65" }}>
-                    14:20:13 Tue Jun 20 2023
-                  </p>
-                  <p style={{ fontSize: "17px" }}>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                    Velit minima alias earum ratione voluptas a recusandae
-                    culpa, necessitatibus facere asperiores deserunt qui rem
-                    labore eligendi aliquam aut cupiditate pariatur
-                    reprehenderit.
-                  </p>
-                  <button
-                    style={{
-                      height: "46px",
-                      width: "315px",
-                      backgroundColor: "#228B22",
-                    }}
-                  >
-                    Approved
-                  </button>
-                  <button className="button">
-                    <img
-                      src="SAMS-MapView-Page-svgs/navigation/plugsBtn.svg"
-                      alt=""
-                    />
-                  </button>
-                </div>
-              </div>
-              <div className="ApprovedRequestItems">
-                <div>
-                  <RoadAndTransportationSVG />
-                  <span
-                    style={{
-                      color: "blue",
-                      fontWeight: "bold",
-                      fontSize: "25px",
-                    }}
-                  >
-                    Road And Transportation
-                  </span>
-                  <p style={{ fontSize: "17px", opacity: "0.65" }}>
-                    14:20:13 Tue Jun 20 2023
-                  </p>
-                  <p style={{ fontSize: "17px" }}>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                    Velit minima alias earum ratione voluptas a recusandae
-                    culpa, necessitatibus facere asperiores deserunt qui rem
-                    labore eligendi aliquam aut cupiditate pariatur
-                    reprehenderit.
-                  </p>
-                  <button
-                    style={{
-                      height: "46px",
-                      width: "315px",
-                      backgroundColor: "#228B22",
-                    }}
-                  >
-                    Approved
-                  </button>
-                  <button className="button">
+                  <button className="button" onClick={ () => navigateToSettings() }>
                     <img
                       src="SAMS-MapView-Page-svgs/navigation/plugsBtn.svg"
                       alt=""
@@ -801,7 +465,6 @@ export const Bakoven = () => {
               </div>
             </div>
           </section>
-          <D3SVG_dynamicChartTest />
         </div>
       </div>
     </React.Fragment>
@@ -936,7 +599,6 @@ export function D3SVG_dynamicChartTest() {
           </button>
         </p>
       </div>
-      <DynamicBarChart_SVG />
     </React.Fragment>
   );
 }

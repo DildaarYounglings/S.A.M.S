@@ -1,0 +1,365 @@
+:root {
+  --xs: 0;
+  --sm: 480px;
+  --md: 720px;
+  --lg: 960px;
+  --xl: 1200px;
+}
+
+.App {
+  text-align: center;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: white;
+}
+
+/* Bakoven jsx start styles */
+.Bakoven {
+  position:relative;
+  background-color: white;
+  .NavigationContainer{
+    margin-bottom:30px
+  }
+  .buttonContainer{
+    margin-bottom:30px;
+    margin-left:1vw;
+    margin-right:auto;
+    button{
+      position: relative;
+      width: 1191px;
+      height: 53px;
+      border-radius: 50px 50px 50px 50px;
+      background-color: blue;
+      span{
+        position: relative;
+        bottom: 5px;
+        font-size: 21px;
+        font-weight: bold;
+      }
+    }
+  }
+  .header {
+    display: flex;
+    margin: 0px 40%;
+    img{
+      height:80px; width:80px;
+      translate:0px 20px
+    }
+    div{
+      display:flex;
+      flex-direction:column;
+      margin-left:30px;
+      h1{
+        text-align: left;
+      }
+      h3{
+        translate: 0px -30px;
+        color: blue;
+      }
+    }
+  }
+  .body{
+    display: flex; flex-direction: column;
+    section{
+      display: flex;
+      gap: 40px;
+      translate: 35% 0px;
+      .span1{
+        padding-left: 10px;
+      }
+      .span2{
+        border-left: 1px solid black;
+        padding-left: 40px;
+      }
+      .span3{
+        border-left: 1px solid black;
+        padding-left: 40px;
+      }
+      .span4{
+        border-left: 1px solid black;
+        padding-left: 30px;
+      }
+    }
+    .section2{
+      display:flex;
+      flex-direction:column;
+      translate: 0px 0px;
+      margin: 80px 0px;
+    }
+  }
+  .ApprovedRequestContainer{
+    margin: 0px 13.5%;
+    display: flex;flex-direction: row;gap: 5rem;
+    width: 1475px;
+    height: 654px;
+    overflow-x: scroll;overflow-y: hidden;
+    .ApprovedRequestItems{
+      display: flex;
+      background-color: white;
+      width: 420px;
+      height: 604px;
+      padding: 10px;
+      flex-direction:column;
+      > div{
+        > .ApprovedRequestItems_span{
+          color:blue;
+          font-weight: bold;
+          font-size: 25px;
+        }
+        > .pTagWithDate{
+          font-size: 17px;opacity: 0.65;
+        }
+        > .pTagWithDetails{
+          font-size: 17px; 
+        }
+      }
+      .button{
+        translate: 7.5px -5px;
+        position: relative;
+        height: 45px;
+        width: 46px;
+        img{
+          position: absolute;left: 0; top: -2px;
+          width: 46px;height: 45px;
+          background-color: rgba(0, 0, 0, 0);
+        }
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width: 1138px){
+  .Navigation{
+    .NavLinkActive_IsTrue{
+      text-decoration: none;
+      background-color: rgba(255,255,255,0);
+    }
+    .NavLinkActive_IsFalse{
+      text-decoration: none;
+      background-color: blue;
+    }
+  }
+  .Bakoven {
+    position:relative;
+    background-color: white;
+    .NavigationContainer{
+      transform: translate(-200px, 0px);
+      margin:0px 0%;
+      margin-bottom:30px;
+      
+    }
+    
+    .buttonContainer{
+      width: fit-content;
+      margin:0px auto;
+      margin-bottom:30px;
+      button{
+        position: relative;
+        width: 90vw;
+        height: 53px;
+        border-radius: 50px 50px 50px 50px;
+        background-color: blue;
+        span{
+          position: relative;
+          bottom: 5px;
+          font-size: 21px;
+          font-weight: bold;
+        }
+      }
+    }
+    .header {
+      display: flex;
+      margin: 0px 40%;
+      img{
+        height:80px; width:80px;
+        translate:0px 20px
+      }
+      div{
+        display:flex;
+        flex-direction:column;
+        margin-left:30px;
+        h1{
+          text-align: left;
+        }
+        h3{
+          translate: 0px -30px;
+          color: blue;
+        }
+      }
+    }
+    .body{
+      width: fit-content;
+      margin:0px auto;
+      display: flex; flex-direction: column;
+      .section1{
+        all: unset;
+        display: flex;
+        width: fit-content;
+        margin:0px auto;
+        gap: 40px; 
+        .span1{
+          width: fit-content;
+          padding-left: 10px;
+        }
+        .span2{
+          width: fit-content;
+          border-left: 1px solid black;
+          padding-left: 40px;
+        }
+        .span3{
+          width: fit-content;
+          border-left: 1px solid black;
+          padding-left: 40px;
+        }
+        .span4{
+          width: fit-content;
+          border-left: 1px solid black;
+          padding-left: 30px;
+        }
+      }
+      .section2{
+        display: flex;
+        flex-direction:column;
+        width: fit-content;
+        transform: translate(14.5vw,0px);
+        margin: 80px auto;
+      }
+    }
+    .ApprovedRequestContainer{
+      margin: 0px 13.5%;
+      display: flex;flex-direction: row;gap: 5rem;
+      transform: translate(-25vw,0px);
+      width: 90vw;
+      height: 654px;
+      overflow-x: scroll;overflow-y: hidden;
+      .ApprovedRequestItems{
+        display: flex;
+        background-color: white;
+        width: 420px;
+        height: 604px;
+        padding: 10px;
+        flex-direction:column;
+        > div{
+          > .ApprovedRequestItems_span{
+            color:blue;
+            font-weight: bold;
+            font-size: 25px;
+          }
+          > .pTagWithDate{
+            font-size: 17px;opacity: 0.65;
+          }
+          > .pTagWithDetails{
+            font-size: 17px; 
+          }
+        }
+        .button{
+          translate: 7.5px -5px;
+          position: relative;
+          height: 45px;
+          width: 46px;
+          img{
+            position: absolute;left: 0; top: -2px;
+            width: 46px;height: 45px;
+            background-color: rgba(0, 0, 0, 0);
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Bakoven jsx styles end */
+
+/* BakovenRequestCardSettings jsx styles start */
+.BakovenRequestCardSettings {
+  background-color: white;
+
+  header {
+    display: flex;
+    gap: 100px;
+    flex-direction: column;
+    height: fit-content;
+    width: 100%;
+
+    .header {
+      height: fit-content;
+      width: fit-content;
+      margin: 0px auto;
+      margin-top: 10px;
+      display: flex;
+      gap: 30px;
+    }
+
+    .buttonContainer {
+      width: max-content;
+      margin: 0px auto;
+      margin-bottom: 30px;
+
+      button {
+        position: relative;
+        width: 1191px;
+        height: 53px;
+        border-radius: 50px 50px 50px 50px;
+        background-color: blue;
+
+        span {
+          position: relative;
+          bottom: 5px;
+          font-size: 21px;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+  section {
+    .ApprovedRequestContainer {
+      background-color: white;
+      margin: 0px 13.5%;
+      display: flex;
+      flex-direction: column;
+      gap: 5rem;
+      width: fit-content;
+      height: 1000px;
+      overflow-y: scroll;
+      overflow-x: hidden;
+
+      .ApprovedRequestItems {
+        display: flex;
+        background-color: white;
+        width: 420px;
+        height: 604px;
+        padding: 10px;
+        flex-direction: column;
+
+        .button {
+          translate: 7.5px -5px;
+          position: relative;
+          height: 45px;
+          width: 46px;
+
+          img {
+            position: absolute;
+            left: 0;
+            top: -2px;
+            width: 46px;
+            height: 45px;
+            background-color: rgba(0, 0, 0, 0);
+          }
+        }
+      }
+    }
+  }
+  footer {
+    width: fit-content;
+    ul {
+      display: flex;
+      flex-direction: row;
+      list-style-type: none;
+      gap: 10px
+    }
+  }
+}
+/* BakovenRequestCardSettings jsx end styles */

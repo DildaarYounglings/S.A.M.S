@@ -104,7 +104,7 @@ export const Navigation = () => {
   ];
 
   return (
-    <nav
+    <nav className="Navigation"
       style={{
         marginBottom: "30px",
         display: "flex",
@@ -118,16 +118,8 @@ export const Navigation = () => {
           <NavLink
             key={index}
             to={item.href}
-            style={({ isActive }) => {
-              const style = {
-                textDecoration: "none",
-                backgroundColor: `${
-                  (isActive !== true) ? "rgba(255,255,255,0)" : "blue"
-                }`
-              };
-              return style;
-            }}
-          >
+            className={({isActive}) => { return (isActive !== true )? 'NavLinkActive_IsTrue' : 'NavLinkActive_IsFalse' }}
+              >
             <button to={item.href} style={item.buttonStyle}>
               {item.svgImageElement}
               <span style={item.spanStyle}>{item.buttonName}</span>
@@ -140,7 +132,6 @@ export const Navigation = () => {
 export const MapView = () => {
   return (
     <React.Fragment>
-      <Bakoven/>
       <div style={{ backgroundColor: "white" }}>
         <div
           style={{ display: "flex", marginLeft: "35%", marginRight: "auto" }}
@@ -225,7 +216,7 @@ export const MapView = () => {
                   borderLeft: "1px solid white",
                 }}
               >
-                Visit Board
+                <link></link>Visit Board
               </th>
             </tr>
           </thead>
@@ -272,7 +263,7 @@ export const MapView = () => {
               </th>
               <th style={{ color: "black", textAlign: "left" }}>
                 <span style={{ color: "black" }}>| </span>
-                <Link>Visit Board</Link>
+                <Link to={'/areasBakoven'} >Visit Board</Link>
               </th>
             </tr>
             <tr>
