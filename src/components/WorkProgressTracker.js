@@ -74,9 +74,11 @@ export const WorkProgressTracker = () => {
               <a>Filter</a>
             </button>
           </div>
-          <div className="barGraphs" style={{ marginTop: "30px" }}>
+          <div className="barGraphs" style={{marginTop: "30px" }}>
             <BarGraphSVG />
+            <button style={{display:"block",margin:'3vh 0px 10vh 6vw',width:'389px',height:'88px',backgroundColor:'#0057FF',color:'white'}}>Generate docs</button>
           </div>
+          
         </div>
       </div>
     </React.Fragment>

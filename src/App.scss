@@ -14,6 +14,27 @@ body {
   overflow-x: hidden;
   background-color: white;
 }
+// Navigation jsx styles start //
+.Navigation{
+  display: flex;
+  gap: 20px;
+  margin-left: 20%;
+  margin-right: auto;
+  margin-bottom: 30px;
+  
+  .NavLinkActive_IsTrue{
+    height: fit-content;
+    width: fit-content;
+    text-decoration: none;
+    background-color: rgba(255,255,255,0);
+  }
+  .NavLinkActive_IsFalse{
+    text-decoration: none;
+    background-color: blue;
+  }
+}
+// Navigation jsx styles end //
+
 
 /* Bakoven jsx start styles */
 .Bakoven {
@@ -133,7 +154,15 @@ body {
 
 @media screen and (max-width: 1138px){
   .Navigation{
+    display: flex;
+    gap: 10px;
+    margin-left: 20%;
+    margin-right: auto;
+    margin-bottom: 30px;
+    
     .NavLinkActive_IsTrue{
+      height: fit-content;
+      width: fit-content;
       text-decoration: none;
       background-color: rgba(255,255,255,0);
     }

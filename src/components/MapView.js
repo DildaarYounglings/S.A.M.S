@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import {
   AreasBtnSVG,
@@ -13,7 +13,7 @@ import {
 import { Bakoven} from "./Bakoven";
 
 export const Navigation = () => {
-  const navigationItemsArray = [
+  const navigationView_4_Tablet = [
     {
       buttonName: " Dashboard",
       href: "/dashboard",
@@ -103,16 +103,101 @@ export const Navigation = () => {
     },
   ];
 
+
+  const navigationView_4_Desktop= [
+    {
+      buttonName: " Dashboard",
+      href: "/dashboard",
+      spanStyle: {
+        position: "relative",
+        bottom: "10px",
+        color: "black",
+        backgroundColor: "rgba(255,255,255,0)",
+      },
+      buttonStyle: {
+        position: "relative",
+        height: "33px",
+        width: "220px",
+        borderRadius: "20px 0px 0px 20px",
+        backgroundColor: "rgba(255,255,255,0)",
+      },
+      svgImageElement: <DashboardBtnSVG />,
+    },
+    {
+      buttonName: " Areas",
+      href: "/areas",
+      spanStyle: {
+        position: "relative",
+        bottom: "10px",
+        color: "black",
+        backgroundColor: "rgba(255,255,255,0)",
+      },
+      buttonStyle: {
+        position: "relative",
+        height: "33px",
+        width: "220px",
+        backgroundColor: "rgba(255,255,255,0)",
+      },
+      svgImageElement: <AreasBtnSVG />,
+    },
+    {
+      buttonName: " Progress Tracker",
+      href: "/progressTracker",
+      spanStyle: {
+        position: "relative",
+        bottom: "10px",
+        color: "black",
+        backgroundColor: "rgba(255,255,255,0)",
+      },
+      buttonStyle: {
+        position: "relative",
+        height: "33px",
+        width: "220px",
+        backgroundColor: "rgba(255,255,255,0)",
+      },
+      svgImageElement: <ProgressTrackerBtnSVG />,
+    },
+    {
+      buttonName: " Settings",
+      href: "/settings",
+      spanStyle: {
+        position: "relative",
+        bottom: "10px",
+        color: "black",
+        backgroundColor: "rgba(255,255,255,0)",
+      },
+      buttonStyle: {
+        position: "relative",
+        height: "33px",
+        width: "220px",
+        backgroundColor: "rgba(255,255,255,0)",
+      },
+      svgImageElement: <SettingsBtnSVG />,
+    },
+    {
+      buttonName: " Exit App",
+      href: "/",
+      spanStyle: {
+        position: "relative",
+        bottom: "10px",
+        color: "black",
+        backgroundColor: "rgba(255,255,255,0)",
+      },
+      buttonStyle: {
+        position: "relative",
+        height: "33px",
+        width: "220px",
+        borderRadius: "0px 20px 20px 0px",
+        backgroundColor: "rgba(255,255,255,0)",
+      },
+      svgImageElement: <ExitBtnSVG />,
+    },
+  ];
+  const [navigationItemsArray,set_navigationItemsArray] = useState(navigationView_4_Desktop);
+  
+
   return (
-    <nav className="Navigation"
-      style={{
-        marginBottom: "30px",
-        display: "flex",
-        gap: "25px",
-        marginLeft: "20%",
-        marginRight: "auto",
-      }}
-    >
+    <nav className="Navigation">
       {navigationItemsArray &&
         navigationItemsArray.map((item, index) => (
           <NavLink
