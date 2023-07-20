@@ -19,7 +19,7 @@ const Dashboard = () => {
       <br />
       <br />
       <button
-        onClick={signUserOut}
+        onClick={() => signUserOut}
         style={{
           color: "white",
           backgroundColor: "black",

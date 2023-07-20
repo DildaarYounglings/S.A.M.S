@@ -1,5 +1,7 @@
-import React, { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { auth } from "../Firebase/firebase";
+import { signOut } from "firebase/auth";
+import { Link, NavLink, useNavigate} from "react-router-dom";
 import {
   AreasBtnSVG,
   BackBtnSVG,
@@ -11,8 +13,11 @@ import {
   SettingsBtnSVG,
 } from "./AllSvgs";
 import { Bakoven} from "./Bakoven";
+import { AuthContext } from "../Auth/Context/AuthContext";
 
 export const Navigation = () => {
+  const redirect = useNavigate();
+  const {user} = useContext(AuthContext);
   const navigationView_4_Tablet = [
     {
       buttonName: " Dashboard",
@@ -22,6 +27,9 @@ export const Navigation = () => {
         bottom: "10px",
         color: "black",
         backgroundColor: "rgba(255,255,255,0)",
+      },
+      button_click: async () =>{
+        return;
       },
       buttonStyle: {
         position: "relative",
@@ -41,6 +49,9 @@ export const Navigation = () => {
         color: "black",
         backgroundColor: "rgba(255,255,255,0)",
       },
+      button_click: async () =>{
+        return;
+      },
       buttonStyle: {
         position: "relative",
         height: "33px",
@@ -57,6 +68,9 @@ export const Navigation = () => {
         bottom: "10px",
         color: "black",
         backgroundColor: "rgba(255,255,255,0)",
+      },
+      button_click: async () =>{
+        return;
       },
       buttonStyle: {
         position: "relative",
@@ -75,6 +89,9 @@ export const Navigation = () => {
         color: "black",
         backgroundColor: "rgba(255,255,255,0)",
       },
+      button_click: async () =>{
+        return;
+      },
       buttonStyle: {
         position: "relative",
         height: "33px",
@@ -91,6 +108,11 @@ export const Navigation = () => {
         bottom: "10px",
         color: "black",
         backgroundColor: "rgba(255,255,255,0)",
+      },
+      button_click: async function(){
+        try{await signOut(auth)}
+        catch(err){console.error(err)}
+        redirect("/");
       },
       buttonStyle: {
         position: "relative",
@@ -114,6 +136,9 @@ export const Navigation = () => {
         color: "black",
         backgroundColor: "rgba(255,255,255,0)",
       },
+      button_click: async () =>{
+        redirect("/dashboard")
+      },
       buttonStyle: {
         position: "relative",
         height: "33px",
@@ -132,6 +157,9 @@ export const Navigation = () => {
         color: "black",
         backgroundColor: "rgba(255,255,255,0)",
       },
+      button_click: async () =>{
+        redirect('/areas')
+      },
       buttonStyle: {
         position: "relative",
         height: "33px",
@@ -148,6 +176,9 @@ export const Navigation = () => {
         bottom: "10px",
         color: "black",
         backgroundColor: "rgba(255,255,255,0)",
+      },
+      button_click: async () =>{
+        redirect("/progressTracker")
       },
       buttonStyle: {
         position: "relative",
@@ -166,6 +197,9 @@ export const Navigation = () => {
         color: "black",
         backgroundColor: "rgba(255,255,255,0)",
       },
+      button_click: async () =>{
+        redirect("/settings")
+      },
       buttonStyle: {
         position: "relative",
         height: "33px",
@@ -182,6 +216,15 @@ export const Navigation = () => {
         bottom: "10px",
         color: "black",
         backgroundColor: "rgba(255,255,255,0)",
+      },
+      button_click: async () =>{
+        if(window.confirm("Are you sure that you wish to loggout")){
+          try{
+            await signOut(auth);redirect("/");
+          }
+          catch(err){console.error(err)}
+        }
+        
       },
       buttonStyle: {
         position: "relative",
@@ -205,7 +248,7 @@ export const Navigation = () => {
             to={item.href}
             className={({isActive}) => { return (isActive !== true )? 'NavLinkActive_IsTrue' : 'NavLinkActive_IsFalse' }}
               >
-            <button to={item.href} style={item.buttonStyle}>
+            <button to={item.href} onClick={() => item.button_click()} style={item.buttonStyle}>
               {item.svgImageElement}
               <span style={item.spanStyle}>{item.buttonName}</span>
             </button>
