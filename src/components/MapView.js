@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { auth } from "../Firebase/firebase";
 import { signOut } from "firebase/auth";
-import { Link, NavLink, useNavigate} from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import {
   AreasBtnSVG,
   BackBtnSVG,
@@ -12,12 +12,12 @@ import {
   ProgressTrackerBtnSVG,
   SettingsBtnSVG,
 } from "./AllSvgs";
-import { Bakoven} from "./Bakoven";
+import { Bakoven } from "./Bakoven";
 import { AuthContext } from "../Auth/Context/AuthContext";
 
 export const Navigation = () => {
   const redirect = useNavigate();
-  const {user} = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const navigationView_4_Tablet = [
     {
       buttonName: " Dashboard",
@@ -28,7 +28,7 @@ export const Navigation = () => {
         color: "black",
         backgroundColor: "rgba(255,255,255,0)",
       },
-      button_click: async () =>{
+      button_click: async () => {
         return;
       },
       buttonStyle: {
@@ -49,7 +49,7 @@ export const Navigation = () => {
         color: "black",
         backgroundColor: "rgba(255,255,255,0)",
       },
-      button_click: async () =>{
+      button_click: async () => {
         return;
       },
       buttonStyle: {
@@ -69,7 +69,7 @@ export const Navigation = () => {
         color: "black",
         backgroundColor: "rgba(255,255,255,0)",
       },
-      button_click: async () =>{
+      button_click: async () => {
         return;
       },
       buttonStyle: {
@@ -89,7 +89,7 @@ export const Navigation = () => {
         color: "black",
         backgroundColor: "rgba(255,255,255,0)",
       },
-      button_click: async () =>{
+      button_click: async () => {
         return;
       },
       buttonStyle: {
@@ -109,9 +109,12 @@ export const Navigation = () => {
         color: "black",
         backgroundColor: "rgba(255,255,255,0)",
       },
-      button_click: async function(){
-        try{await signOut(auth)}
-        catch(err){console.error(err)}
+      button_click: async function () {
+        try {
+          await signOut(auth);
+        } catch (err) {
+          console.error(err);
+        }
         redirect("/");
       },
       buttonStyle: {
@@ -125,8 +128,7 @@ export const Navigation = () => {
     },
   ];
 
-
-  const navigationView_4_Desktop= [
+  const navigationView_4_Desktop = [
     {
       buttonName: " Dashboard",
       href: "/dashboard",
@@ -136,8 +138,8 @@ export const Navigation = () => {
         color: "black",
         backgroundColor: "rgba(255,255,255,0)",
       },
-      button_click: async () =>{
-        redirect("/dashboard")
+      button_click: async () => {
+        redirect("/dashboard");
       },
       buttonStyle: {
         position: "relative",
@@ -157,8 +159,8 @@ export const Navigation = () => {
         color: "black",
         backgroundColor: "rgba(255,255,255,0)",
       },
-      button_click: async () =>{
-        redirect('/areas')
+      button_click: async () => {
+        redirect("/areas");
       },
       buttonStyle: {
         position: "relative",
@@ -177,8 +179,8 @@ export const Navigation = () => {
         color: "black",
         backgroundColor: "rgba(255,255,255,0)",
       },
-      button_click: async () =>{
-        redirect("/progressTracker")
+      button_click: async () => {
+        redirect("/progressTracker");
       },
       buttonStyle: {
         position: "relative",
@@ -197,8 +199,8 @@ export const Navigation = () => {
         color: "black",
         backgroundColor: "rgba(255,255,255,0)",
       },
-      button_click: async () =>{
-        redirect("/settings")
+      button_click: async () => {
+        redirect("/settings");
       },
       buttonStyle: {
         position: "relative",
@@ -217,14 +219,15 @@ export const Navigation = () => {
         color: "black",
         backgroundColor: "rgba(255,255,255,0)",
       },
-      button_click: async () =>{
-        if(window.confirm("Are you sure that you wish to loggout")){
-          try{
-            await signOut(auth);redirect("/");
+      button_click: async () => {
+        if (window.confirm("Are you sure that you wish to loggout")) {
+          try {
+            await signOut(auth);
+            redirect("/");
+          } catch (err) {
+            console.error(err);
           }
-          catch(err){console.error(err)}
         }
-        
       },
       buttonStyle: {
         position: "relative",
@@ -236,8 +239,9 @@ export const Navigation = () => {
       svgImageElement: <ExitBtnSVG />,
     },
   ];
-  const [navigationItemsArray,set_navigationItemsArray] = useState(navigationView_4_Desktop);
-  
+  const [navigationItemsArray, set_navigationItemsArray] = useState(
+    navigationView_4_Desktop
+  );
 
   return (
     <nav className="Navigation">
@@ -246,9 +250,17 @@ export const Navigation = () => {
           <NavLink
             key={index}
             to={item.href}
-            className={({isActive}) => { return (isActive !== true )? 'NavLinkActive_IsTrue' : 'NavLinkActive_IsFalse' }}
-              >
-            <button to={item.href} onClick={() => item.button_click()} style={item.buttonStyle}>
+            className={({ isActive }) => {
+              return isActive !== true
+                ? "NavLinkActive_IsTrue"
+                : "NavLinkActive_IsFalse";
+            }}
+          >
+            <button
+              to={item.href}
+              onClick={() => item.button_click()}
+              style={item.buttonStyle}
+            >
               {item.svgImageElement}
               <span style={item.spanStyle}>{item.buttonName}</span>
             </button>
@@ -391,7 +403,7 @@ export const MapView = () => {
               </th>
               <th style={{ color: "black", textAlign: "left" }}>
                 <span style={{ color: "black" }}>| </span>
-                <Link to={'/areasBakoven'} >Visit Board</Link>
+                <Link to={"/areasBakoven"}>Visit Board</Link>
               </th>
             </tr>
             <tr>
