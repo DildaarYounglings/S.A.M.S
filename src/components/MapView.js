@@ -110,12 +110,13 @@ export const Navigation = () => {
         backgroundColor: "rgba(255,255,255,0)",
       },
       button_click: async function () {
-        try {
-          await signOut(auth);
-        } catch (err) {
-          console.error(err);
+        if (window.confirm("Are you sure that you wish to loggout")) {
+          await signOut(auth).then(() => redirect("/")).catch((err) => console.log(err));
         }
-        redirect("/");
+        else{
+          return;
+        }
+        return;
       },
       buttonStyle: {
         position: "relative",
@@ -221,13 +222,12 @@ export const Navigation = () => {
       },
       button_click: async () => {
         if (window.confirm("Are you sure that you wish to loggout")) {
-          try {
-            await signOut(auth);
-            redirect("/");
-          } catch (err) {
-            console.error(err);
-          }
+          await signOut(auth).then(() => redirect("/")).catch((err) => console.log(err));
         }
+        else{
+          return;
+        }
+        return;
       },
       buttonStyle: {
         position: "relative",
